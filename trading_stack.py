@@ -13,7 +13,10 @@ class MyTradingBotStack(Stack):
         super().__init__(scope, construct_id, **kwargs)
 
         secret_name = 'TRADING_SECRETS'
-
+        secret = secretsmanager.Secret.from_secret_name_v2(
+            self, "TradingSecret",
+            secret_name=secret_name
+        )
         # ===== LAMBDA FUNCTION =====
         bot_lambda = _lambda.Function(
             self, "TradingBotLambda",
