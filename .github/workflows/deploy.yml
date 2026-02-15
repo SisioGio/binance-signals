@@ -34,10 +34,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
             node-version: '20'  # LTS or your preferred version
-      - name: Create Layer
+      - name: Create Layer 1
     
         run: |
-            pip install -r src/binance/requirements.txt -t layer/utils/python
+            pip install -r src/binance/requirements_1.txt -t layer_1/utils/python
+      - name: Create Layer 2
+    
+        run: |
+            pip install -r src/binance/requirements_2.txt -t layer_2/utils/python
       - name: Install AWS CDK
         run: npm install -g aws-cdk
       - name: Deploy CDK

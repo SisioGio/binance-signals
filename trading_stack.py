@@ -18,9 +18,16 @@ class MyTradingBotStack(Stack):
             secret_name=secret_name
         )
         
-        utils_layer = _lambda.LayerVersion(
+        utils_1_layer = _lambda.LayerVersion(
             self, "TradingUtilsLayer",
-            code=_lambda.Code.from_asset("layer/utils"),
+            code=_lambda.Code.from_asset("layer/utils_1"),
+            compatible_runtimes=[_lambda.Runtime.PYTHON_3_11],
+            description="Trading utils"
+        )
+        
+        utils_2_layer = _lambda.LayerVersion(
+            self, "TradingUtilsLayer",
+            code=_lambda.Code.from_asset("layer/utils_2"),
             compatible_runtimes=[_lambda.Runtime.PYTHON_3_11],
             description="Trading utils"
         )
@@ -37,7 +44,7 @@ class MyTradingBotStack(Stack):
             environment={
                 "SECRET_NAME": secret_name
             },
-            layers=[utils_layer]
+            layers=[utils_1_layer,utils_2_layer]
         )
 
         # Allow Lambda to read secret
