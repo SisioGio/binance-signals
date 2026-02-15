@@ -21,7 +21,7 @@ class MyTradingBotStack(Stack):
         utils_layer = _lambda.LayerVersion(
             self, "TradingUtilsLayer",
             code=_lambda.Code.from_asset("layer/utils"),
-            compatible_runtimes=[_lambda.Runtime.PYTHON_3_12],
+            compatible_runtimes=[_lambda.Runtime.PYTHON_3_11],
             description="Trading utils"
         )
         
