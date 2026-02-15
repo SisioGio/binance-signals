@@ -37,7 +37,7 @@ jobs:
       - name: Create Layer
     
         run: |
-            pip install -r src/binance/requirements.txt -t layer/libraries/python
+            pip install -r src/binance/requirements.txt -t layer/utils/python
       - name: Install AWS CDK
         run: npm install -g aws-cdk
       - name: Deploy CDK
