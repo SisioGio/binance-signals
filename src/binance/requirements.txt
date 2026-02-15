@@ -1,5 +1,5 @@
 # Core numerical packages compatible with Python 3.11
-numpy==1.25.4
+numpy==1.26.4
 pandas==2.0.3
 
 python-binance==1.0.16
